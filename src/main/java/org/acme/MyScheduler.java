@@ -22,9 +22,7 @@ public class MyScheduler {
     @Scheduled(every = "10s")
     @ActivateRequestContext
     void run() {
-        String transactionId = UUID.randomUUID().toString();
-        requestLoggingContext.createTransactionId();
-        System.out.println("[Scheduler] Start execution with Transaction-ID: " + transactionId);
+        System.out.println("[Scheduler] Start execution with Transaction-ID: " + requestLoggingContext.createAndSetTransactionId());
         myScheduledExecutor.step1();
         myScheduledExecutor.step2();
     }

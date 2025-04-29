@@ -18,8 +18,9 @@ public class RequestLoggingContext {
         return transactionId;
     }
 
-    public void  createTransactionId() {
+    public String  createAndSetTransactionId() {
         transactionId = UUID.randomUUID().toString();
+        return transactionId;
     }
 
 }
